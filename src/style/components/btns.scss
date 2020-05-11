@@ -1,0 +1,52 @@
+/* BTNS */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  vertical-align: middle;
+  line-height: $btn-line-heigh;
+  text-align: center;
+  transition: background 0.3s;
+  position: relative;
+  bottom: 0;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  opacity: 1;
+  text-overflow: ellipsis;
+  user-select: none;
+
+  &:hover {
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+
+.btn-main {
+  color: $color-white;
+  border-radius: 2px;
+  background-image: linear-gradient(to bottom, $color-main 0%, $color-main-darken 100%);
+  text-shadow: 1px 1px 0 rgba($color-black, 0.1);
+  outline: none !important;
+  transition: all 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    bottom: -1px;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 2px rgba($color-main, 0.3);
+  }
+
+  &--size-base {
+    height: 30px;
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+}

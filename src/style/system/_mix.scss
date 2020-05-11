@@ -1,0 +1,32 @@
+// Mixins
+@mixin font-size($sizeValue, $fontInterliase) {
+  font-size: $sizeValue;
+  line-height: $fontInterliase / $sizeValue;
+}
+
+@mixin better-fonts() {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Styles
+@mixin style-title-h1() {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 700;
+}
+
+@mixin style-title-h2() {
+  @include font-size(24px, 28px);
+  font-weight: 700;
+}
+
+@mixin style-text-large() {
+  @include font-size(18px, 24px);
+  font-weight: 400;
+}
+
+@mixin style-text-base() {
+  @include font-size(14px, 18px);
+  font-weight: 400;
+}

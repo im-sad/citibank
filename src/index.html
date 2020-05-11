@@ -1,0 +1,34 @@
+@@include('tpl/outer/start.html', { "title": "Index page" })
+
+
+<body>
+<noscript><div class="noJs">For full functionality of this site it is necessary to enable JavaScript!</div></noscript>
+
+<script>
+(function() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'img/sprite.svg', true);
+  xhr.send();
+  xhr.onload = function() {
+    var div = document.createElement('div');
+    div.innerHTML = xhr.responseText;
+    document.body.insertBefore(div, document.body.childNodes[0]);
+  }
+})();
+</script>
+
+@@include('tpl/header.html')
+
+@@include('tpl/pages/index.html')
+
+@@include('tpl/footer.html')
+
+@@include('tpl/modal.html')
+
+
+<!-- SCRIPTS -->
+<script>document.documentElement.classList.remove('no-js')</script>
+<script src="js/main.js"></script>
+
+</body>
+</html>

@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   'use strict';
 
-  // Fields
   (function() {
     var requestForm = document.getElementById('js-request');
     var fieldAutoupdate = document.getElementsByClassName('js-autovalidate');
@@ -55,6 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // FUNCTIONS
     function formValidate(formEl) {
       var formElementsList = formEl.querySelectorAll('[data-validate]');
+      var selectError; // dirty UI fix
 
       for (var i = 0; i < formElementsList.length; i++) {
         var formField = formElementsList[i];
@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         switch (formFieldType) {
           case 'checkbox':
+            if (selectError) break;
             (!formField.checked) ? showErorr(formField) : hideErorr(formField);
             break;
 
@@ -88,7 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
             break;
 
           default:
-            isFieldEmpty(formField) ? showErorr(formField) : hideErorr(formField);
+            if(isFieldEmpty(formField)) {
+              showErorr(formField);
+              selectError = true
+            }  else {
+              selectError = false
+            }
         }
       }
 
